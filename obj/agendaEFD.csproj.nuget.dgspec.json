@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\agendaEFD.csproj": {}
+    "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\agendaEFD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\agendaEFD.csproj": {
+    "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\agendaEFD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\agendaEFD.csproj",
+        "projectUniqueName": "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\agendaEFD.csproj",
         "projectName": "agendaEFD",
-        "projectPath": "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\agendaEFD.csproj",
+        "projectPath": "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\agendaEFD.csproj",
         "packagesPath": "C:\\Users\\utilisateur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\obj\\",
+        "outputPath": "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",

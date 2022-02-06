@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FXxBLyichUt3BFYR58KsgjDqLOPtVVm0dIuMi0TcqHm9oEbJyT0MqqZy/wGZ1sXT6mYpYYxl3fZC+Cd4GhIFaA==",
+  "dgSpecHash": "VYdztwyRmwgCqAbtfDJ7LN20sRQGBZLjYtnxZNBMIlC8W7sGw+dTkInolZBIv/Gy+i2RsnBmZUO/9XUx9eH1hg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\utilisateur\\source\\repos\\agendaEFD\\agendaEFD.csproj",
+  "projectFilePath": "C:\\Users\\utilisateur\\github\\ASPNETagendamvc\\agendaEFD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\utilisateur\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\utilisateur\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

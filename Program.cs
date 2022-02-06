@@ -9,6 +9,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<agendaContext>(option => option.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Azure connection - automate the migrations
+var contextOptions = new DbContextOptionsBuilder<agendaContext>()
+    .UseSqlServer("ConnectionStrings")
+    .Options;
+using (var context = new agendaContext(contextOptions))
+{
+    context.Database.Migrate();
+}
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
