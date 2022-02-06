@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Broker>
+@{
+    ViewData["Title"] = "Liste des Courtiers";
+}
+
+
+<div class="m-5 d-flex justify-content-between">
+<h2>Liste des courtiers</h2>
+    <a class="btn btn-primary" asp-controller="Broker" asp-action="Add"><i class="bi bi-plus-square"></i> Ajouter Courtier</a>
+</div>
+
+
+<table class="table table-hover" style="width:100%">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">#id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Email</th>
+            <th scope="col">RDV</th>
+            <th scope="col">Voir</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Suppression</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var broker in Model)
+        {
+            <tr class="table-warning">
+                <th scope="row">@broker.IdBroker</th>
+                <td> @broker.Lastname</td>
+                <td> @broker.Firstname</td>
+                <td> @broker.Mail</td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Appointment"
+                    asp-action="Add"
+                    asp-route-id="@broker.IdBroker">RDV</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Broker"
+                    asp-action="Profil"
+                    asp-route-id="@broker.IdBroker">Voir</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Broker"
+                    asp-action="Edit"
+                    asp-route-id="@broker.IdBroker">Modifier</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                    asp-controller="Broker"
+                    asp-action="Delete"
+                    asp-route-id="@broker.IdBroker">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

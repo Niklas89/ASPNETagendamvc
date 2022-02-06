@@ -1,0 +1,46 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Profile du Client";
+}
+
+<div class="m-5 d-flex justify-content-between">
+    <a class="btn btn-primary" asp-controller="Customer" asp-action="Edit" asp-route-id="@ViewBag.CustomerId"><i class="bi bi-plus-square"></i> Modifier le Client</a>
+</div>
+
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Profile du client </h2>
+</div>
+
+<div asp-validation-summary="All"></div> 
+ 
+<form method="post" style="width:75%;margin:auto;">
+   <fieldset>
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class="form-control" disabled /> 
+    </div>
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" disabled />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control" disabled />
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" disabled />
+    </div>
+    <div class="text-center m-4 p-2">
+        <a class="btn btn-secondary" style="width:100px" asp-controller="Customer" asp-action="Index">Revenir</a>
+    </div>
+   </fieldset>
+</form>
+
+
+@section Scripts {
+      @{
+          <partial name="_ValidationScriptsPartial"></partial>
+      }
+}

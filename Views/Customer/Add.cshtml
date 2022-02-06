@@ -1,0 +1,50 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Ajouter un client";
+}
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Ajouter un client </h2>
+</div>
+
+<div asp-validation-summary="All"></div>
+ 
+<form method="post" style="width:75%;margin:auto;">
+   <fieldset>
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class="form-control" /> 
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Budget"></label>
+        <input asp-for="Budget" class="form-control" />
+        <span asp-validation-for="Budget" class="text-danger"></span>
+    </div>
+    <div class="text-center m-4 p-2">
+        <button class="btn btn-secondary" style="width:100px">Ajouter</button>
+        <a class="btn btn-secondary" style="width:100px" asp-controller="Customer" asp-action="Index">Revenir</a>
+    </div>
+   </fieldset>
+</form>
+
+@section Scripts {
+      @{
+          <partial name="_ValidationScriptsPartial"></partial>
+      }
+}

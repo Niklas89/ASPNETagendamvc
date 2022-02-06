@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BrokerCustomerAppointment>
+@{
+    ViewData["Title"] = "Liste des Rendez-vous";
+}
+
+
+<div class="m-5 d-flex justify-content-between">
+<h2>Liste des rendez-vous</h2>
+    <a class="btn btn-primary" asp-controller="Appointment" asp-action="Add"><i class="bi bi-plus-square"></i> Ajouter un rendez-vous</a>
+</div>
+
+
+<table class="table table-hover" style="width:100%">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">#id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Courtier Prénom</th>
+            <th scope="col">Courtier Nom</th>
+            <th scope="col">Client Prénom</th>
+            <th scope="col">Client Nom</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Suppression</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var appointment in Model)
+        {
+            <tr class="table-warning">
+                <th scope="row">@appointment.AppointmentVm.IdAppointment</th>
+                <td> @appointment.AppointmentVm.DateHour</td>
+                <td> @appointment.AppointmentVm.Subject</td>
+                <td> @appointment.BrokerVm.Firstname</td>
+                <td> @appointment.BrokerVm.Lastname</td>
+                <td> @appointment.CustomerVm.Firstname</td>
+                <td> @appointment.CustomerVm.Lastname</td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Appointment"
+                    asp-action="Edit"
+                    asp-route-id="@appointment.AppointmentVm.IdAppointment">Modifier</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                    asp-controller="Appointment"
+                    asp-action="Delete"
+                    asp-route-id="@appointment.AppointmentVm.IdAppointment">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

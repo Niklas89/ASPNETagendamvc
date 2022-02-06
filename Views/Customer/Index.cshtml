@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = "Liste des Clients";
+}
+
+
+<div class="m-5 d-flex justify-content-between">
+<h2>Liste des clients</h2>
+    <a class="btn btn-primary" asp-controller="Customer" asp-action="Add"><i class="bi bi-plus-square"></i> Ajouter Client</a>
+</div>
+
+
+<table class="table table-hover" style="width:100%">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">#id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numéro de tel</th>
+            <th scope="col">Budget</th>
+            <th scope="col">Voir</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Suppression</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var customer in Model)
+        {
+            <tr class="table-warning">
+                <th scope="row">@customer.IdCustomer</th>
+                <td> @customer.Lastname</td>
+                <td> @customer.Firstname</td>
+                <td> @customer.Mail</td>
+                <td> @customer.PhoneNumber</td>
+                <td> @customer.Budget</td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Customer"
+                    asp-action="Profil"
+                    asp-route-id="@customer.IdCustomer">Voir</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                    asp-controller="Customer"
+                    asp-action="Edit"
+                    asp-route-id="@customer.IdCustomer">Modifier</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                    asp-controller="Customer"
+                    asp-action="Delete"
+                    asp-route-id="@customer.IdCustomer">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

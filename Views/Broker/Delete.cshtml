@@ -1,0 +1,38 @@
+﻿@model Broker
+@{
+    ViewData["Title"] = "Supprimer un Courtier";
+}
+
+
+
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Voulez-vous vraiment supprimer le courtier ? </h2>
+</div>
+
+ 
+<form method="post" style="width:75%;margin:auto;">
+   <fieldset>
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="IdBroker" hidden />
+        <input asp-for="Lastname" class="form-control" disabled /> 
+    </div>
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" disabled />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control" disabled />
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" disabled />
+    </div>
+    <div class="text-center m-4 p-2">
+        <button class="btn btn-secondary" style="width:100px">Supprimer</button>
+        <a class="btn btn-secondary" style="width:100px" asp-controller="Broker" asp-action="Index">Revenir</a>
+    </div>
+   </fieldset>
+</form>
