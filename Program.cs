@@ -11,7 +11,7 @@ builder.Services.AddDbContext<agendaContext>(option => option.UseSqlServer(
 
 // Azure connection - automate the migrations
 var contextOptions = new DbContextOptionsBuilder<agendaContext>()
-    .UseSqlServer("ConnectionStrings")
+    .UseSqlServer("DefaultConnection")
     .Options;
 using (var context = new agendaContext(contextOptions))
 {
