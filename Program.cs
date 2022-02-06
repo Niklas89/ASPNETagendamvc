@@ -18,7 +18,7 @@ using (var context = new agendaContext(contextOptions))
 {
     context.Database.Migrate();
 }
-}
+
 
 
 
