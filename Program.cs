@@ -6,16 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<agendaContext>(option => option.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<agendaContext>(options =>
+    options.UseSqlServer(connectionString));
 
 // Azure connection - automate the migrations
 var contextOptions = new DbContextOptionsBuilder<agendaContext>()
-    .UseSqlServer("DefaultConnection")
+    .UseSqlServer(connectionString)
     .Options;
 using (var context = new agendaContext(contextOptions))
 {
     context.Database.Migrate();
+}
 }
 
 
