@@ -1,6 +1,6 @@
 ﻿namespace agendaEFD.Models
 {
-    public class BrokerCustomerAppointment
+    public partial class BrokerCustomerAppointment
     {
         public Broker BrokerVm { get; set; }
         public Customer CustomerVm { get; set; }

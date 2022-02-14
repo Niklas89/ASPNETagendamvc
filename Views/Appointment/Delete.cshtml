@@ -1,0 +1,44 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Supprimer un Rendez-vous";
+}
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Supprimer un rendez-vous </h2> 
+</div>
+
+}
+
+<div asp-validation-summary="All"></div> 
+
+<form method="post" style="width:75%;margin:auto;">
+   <fieldset>
+    <div class="mb-3 form-group">
+        <label asp-for="DateHour" class="form-label"></label>
+        <input asp-for="DateHour" class="form-control" disabled /> 
+        <input asp-for="IdAppointment" hidden />
+    </div>
+    <div class="mb-3 form-group">
+        <label asp-for="Subject" class="form-label"></label>
+        <input asp-for="Subject" class="form-control" disabled /> 
+    </div>
+    <div class="mb-3 form-group">
+        <label asp-for="IdBroker" class="form-label">Nom du courtier</label>
+        <input value="@ViewBag.Brokers.Lastname" class="form-control" disabled />
+    </div>
+    <div class="mb-3 form-group">
+        <label asp-for="IdCustomer" class="form-label">Nom du client </label>
+        <input value="@ViewBag.Customers.Lastname" class="form-control" disabled />
+    </div>
+    <div class="text-center m-4 p-2">
+        <button class="btn btn-secondary" style="width:100px">Supprimer</button>
+        <a class="btn btn-secondary" style="width:100px" asp-controller="Appointment" asp-action="Index">Revenir</a>
+    </div>
+   </fieldset>
+</form>
+
+@section Scripts {
+      @{
+          <partial name="_ValidationScriptsPartial"></partial>
+      }
+}

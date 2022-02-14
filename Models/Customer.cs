@@ -35,7 +35,8 @@ namespace agendaEFD.Models
 
         [Required(ErrorMessage = "Le champs Budget doit etre rempli.")]
         [Display(Name = "Le budget en chiffres (sans le €)")]
-        public int Budget { get; set; }
+        [Range(1, 1000, ErrorMessage = "Vous devez indiquer un chiffre si vous pensez être hors budget indiquez 9999")]
+        public int? Budget { get; set; } // int? veut dire qu'il est nullable
 
         public virtual ICollection<Appointment> Appointments { get; set; }
     }

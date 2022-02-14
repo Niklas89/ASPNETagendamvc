@@ -2,7 +2,7 @@
 using agendaEFD.Data;
 using agendaEFD.Models;
 
-namespace agenda.Controllers
+namespace agendaEFD.Controllers
 {
     public class CustomerController : Controller
     {
@@ -12,9 +12,30 @@ namespace agenda.Controllers
         {
             _db = db;
         }
+        /*
         public IActionResult Index()
         {
+            IEnumerable<Customer> Customers = _db.Customers; */
+
+            /* J'aurai pu faire ca aussi:
+            var queryCustomers = _db.Customers.FromSqlRaw("select * from customers order by lastName").ToList();
+            ViewBag.Customers = queryCustomers; */
+            /*
+            return View(Customers);
+        }
+        */
+
+        public IActionResult Index(string? searchString)
+        {
             IEnumerable<Customer> Customers = _db.Customers;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var customers = from c in _db.Customers select c;
+                customers = customers.Where(s => s.Lastname!.Contains(searchString) || s.Firstname.Contains(searchString));
+                return View(customers.ToList());
+            }
+
             return View(Customers);
         }
 
@@ -132,6 +153,15 @@ namespace agenda.Controllers
         [HttpPost]
         public IActionResult Delete(Customer cust)
         {
+            foreach (var n in _db.Appointments.Where(custo => custo.IdCustomer == cust.IdCustomer).ToArray())
+                _db.Appointments.Remove(n);
+            /*
+            var app = from a in _db.Appointments.ToList() where a.IdCustomer == cust.IdCustomer select a;
+            if(app.Count() != 0) // ou app.Any()
+            {
+                _db.Appointments.RemoveRange(app);
+            }
+            */
             _db.Customers.Remove(cust);
             _db.SaveChanges();
 

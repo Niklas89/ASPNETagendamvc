@@ -9,6 +9,12 @@
     <a class="btn btn-primary" asp-controller="Broker" asp-action="Add"><i class="bi bi-plus-square"></i> Ajouter Courtier</a>
 </div>
 
+<form method="get">
+    <div class="mb-3">
+        <input type="text" placeholder="Chercher un courtier" name="searchString" />
+        <input type="submit" value="Filtrer" />
+    </div>
+</form>
 
 <table class="table table-hover" style="width:100%">
     <thead>
